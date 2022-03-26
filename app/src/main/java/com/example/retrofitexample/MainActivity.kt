@@ -1,11 +1,15 @@
 package com.example.retrofitexample
 
+import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.AttributeSet
 import android.util.Log
+import android.view.View
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.example.retrofitexample.repository.Repository
+import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -24,6 +28,7 @@ class MainActivity : AppCompatActivity() {
             Log.d("Response", response.id.toString())
             Log.d("Response", response.title)
             Log.d("Response", response.body)
+            hello.text = response.body
         })
     }
 }
