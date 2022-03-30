@@ -25,8 +25,9 @@ class MainActivity : AppCompatActivity() {
         val viewModelFactory = MainViewModelFactory(repository)
         viewModel = ViewModelProvider(this, viewModelFactory)[MainViewModel::class.java]
         viewModel.getPost()
-        val myPost = Post(2, 4, "Bruce Trindade", "Android Developer")
-        viewModel.pushPost(myPost)
+     //   val myPost = Post(2, 4, "Bruce Trindade", "Android Developer")
+    //    viewModel.pushPost(myPost)
+        viewModel.pushPost2(2,4,"Bruce Trindade", "Android")
         viewModel.myResponse.observe(this, Observer { response ->
             if(response.isSuccessful){
                 Log.d("Main", response.body().toString())
@@ -35,7 +36,7 @@ class MainActivity : AppCompatActivity() {
             } else{
                 Toast.makeText(this, response.code(), Toast.LENGTH_SHORT).show()
             }
-            /*if(response.isSuccessful){
+            /*get if(response.isSuccessful){
                 Log.d("Response", response.body()?.userId.toString())
                 Log.d("Response", response.body()?.id.toString())
                 Log.d("Response", response.body()?.title!!)
